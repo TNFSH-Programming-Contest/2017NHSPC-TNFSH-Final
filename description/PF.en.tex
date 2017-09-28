@@ -1,0 +1,40 @@
+\gdef\thisproblemauthor{}
+\gdef\thisproblemdeveloper{}
+\gdef\thisproblemorigin{}
+\begin{problem}{避難}
+{standard input}{standard output}
+{0.5 seconds}{512 MB}{}
+
+為了爭奪Sana，雙方猛力的交火引發了許多場爆炸，為了避免有更多的人遭受波及，因此要將戰場與避難所的距離設的越遠越好。在這一個區域裡面共有$N$個城鎮，任兩個城鎮間都具有唯一的路徑($path$)可以到達，現在要在這$N$個城市之間找到一個城市做作為兩國交戰的戰場，另一個城市作為臨時避難所。如果今天得到了所有城市間道路的連接距離，你能知道戰場與避難所之間的最短距離最長可以是多少嗎？保證給定的圖是一張平面圖(Planar Graph)。
+
+\centerline{\includegraphics[scale=0.5]{./pics/F.png}}
+
+\InputFile
+
+只有單筆測資，測資的第一行有兩個整數$N,M$表示有$N$個城市，$M$條道路。接下來有$M$行，每一行有三個整數$s,t,w$表示城市$s$到城市$t$有一條長$w$的雙向道路。
+
+\begin{iofmt}
+\begin{itemize}
+	\item $2\leq N \leq 10^5$
+	\item $M = N-1$
+	\item 保證給定的圖只有$1$個連通分量
+	\item 保證給定的圖是平面圖
+	\item $0\leq s,t \leq N-1$
+	\item $0<w \leq 1000$
+	\item 有$10$分的測資$N\leq 10$
+	\item 有$30$分的測資$N\leq 500$
+\end{itemize}
+\end{iofmt}
+
+
+\OutputFile
+
+請輸出一個數字，為要求的最長距離。
+
+\Examples
+
+\begin{example}
+\exmpfile{./sample/PF.sample.in}{./sample/PF.sample.out}%
+\end{example}
+
+\end{problem}

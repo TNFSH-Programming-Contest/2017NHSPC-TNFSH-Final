@@ -1,0 +1,48 @@
+\gdef\thisproblemauthor{}
+\gdef\thisproblemdeveloper{}
+\gdef\thisproblemorigin{}
+\begin{problem}{奪回作戰}
+{standard input}{standard output}
+{1 seconds}{512 MB}{}
+
+Sana竟然輕鬆地被其他國家的特務抓走了，這對於太陽國國家形象可是奇恥大辱！因此被任命保護Sana的女僕幹員得竭盡全力阻止這場綁架行動。
+
+\centerline{\includegraphics[scale=0.3]{./pics/E.png}}
+
+女僕幹員身懷各式絕技，當她使出第$K$個絕招時，體內的能量會隨著時間每秒蓄力逐漸增\textbf{遞增}，如果完全蓄力時能量值表示為$1/1$，第$i$秒可表示為$a_i/b_i$，對於所有的$i$都滿足：
+\begin{itemize}
+\item $0\leq a_i \leq b_i$
+\item $1\leq b_i \leq K$
+\item $gcd(a_i,b_i)=1$，gcd表示兩數的最大公因數
+\item $a_i/b_i < a_{i+1}/b_{i+1}$，且兩數之間不存在其他數字滿足上述條件
+\end{itemize}
+
+比如說如果女僕幹員使出了第$5$號絕招，那她體內的能量變化依序會是：$0/1, 1/5, 1/4, 1/3, 2/5, 1/2, 3/5, 2/3, 3/4, 4/5, 1/1$。
+
+而女僕幹員蓄力完成之後，釋放的招式強度與能量變化有關，假設能量變化依序是$s_1,s_2,\cdots s_k,s_k=1/1$，若$s_i=a_i/b_i$,那招式強度就等於$b_i/b_{i+1}:1\leq i\leq k-1$的總和！如果你知道女僕幹員要使用的招式，你能計算出女僕幹員的招式強度嗎？
+
+\InputFile
+
+第一行有一個整數$T$，表示接下來有幾筆測資。每一筆測資佔一行，只有一個數字$K$，表示女僕幹員要使用的招式。
+
+\begin{iofmt}
+\begin{itemize}
+	\item $1\leq T \leq 10000$
+	\item $1\leq K \leq 10^6$
+	\item 有$10$分的測資$K\leq 10$
+	\item 有$20$分的測資$K\leq 20$
+	\item 有$40$分的測資$K\leq 1000$
+\end{itemize}
+\end{iofmt}
+
+\OutputFile
+
+對於每個招式輸出一行，為招式強度的\textbf{最簡分數}，若分母為$1$則只需要輸出分子一個數字即可。
+
+\Examples
+
+\begin{example}
+\exmpfile{./sample/PE.sample.in}{./sample/PE.sample.out}%
+\end{example}
+
+\end{problem}
