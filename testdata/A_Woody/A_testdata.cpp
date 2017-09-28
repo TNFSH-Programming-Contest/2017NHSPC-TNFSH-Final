@@ -12,9 +12,11 @@ int main(int argc, char* argv[]){
 			fstream f;
 			f.open(ss.str().c_str(), ios::out);
 			
-			int range1 = _pow10[rnd.next(1,8)]-1;
-			int range2 = _pow10[rnd.next(1,4)]-1;
-			f<<rnd.next(1,range1)<<" "<<rnd.next(1,range2)<<endl;
+			int range1 = _pow10[rnd.next(1, 8)] - 1;
+			int range2 = _pow10[rnd.next(1, 4)] - 1;
+			int n1 = rnd.next(1, range1);
+			int n2 = rnd.next(1, range2);
+			f<<n1<<" "<<n2<<endl;
 			
 			f.close();
 		}
