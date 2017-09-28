@@ -2,15 +2,26 @@
 \gdef\thisproblemauthor{}
 \gdef\thisproblemdeveloper{}
 \gdef\thisproblemorigin{}
-\begin{problem}{實驗場}
+\begin{problem}{磨樹 Woody}
 {standard input}{standard output}
-{1 seconds}{512 MB}{}
+{0.5 seconds}{512 MB}{}
 
-$Sana$出生在一個奇妙的地下洞穴當中，而在這\textbf{矩形的洞穴}出生的生物會與這個洞穴產生獨特的共鳴，讓所在的區域轉化為心中的夢想世界！夢想世界可以產生各式各樣心中所創造的奇幻的事物，比如說會說話的兔子陪大家聊天打發時間之類的，不過超出共鳴的作用區域就會讓這個夢想世界的事物直接消失殆盡。
+Woody 是一位有著美學堅持的伐木工 \newline
+他擁有一座森林，裡面的樹木都擁有方形樹幹 ( 如此完美！) \newline
+他每天都會進行一次將樹幹磨得更細的工程 \newline
+對於每棵樹選取接近根部的一小段樹幹，依圖中方式磨細 \newline
+\newline
+更精確地說，每次取橫切面 ( 正方形 ) 的中點連線 \newline
+形成成較小的，旋轉 45 度的方形 \newline
+再將這個小方形以外的部分磨掉 \newline
+\newline
+已之樹幹在截面積 $ \leq A $ 時會倒掉 \newline
+給定一棵樹在第 0 天時的寬度 $ L $ \newline
+Woody 從第 1 天開始磨樹 \newline
+求這顆樹在第幾天會於磨樹途中或恰結束時倒掉 \newline
 
 \centerline{\includegraphics[scale=0.6]{./pics/A.png}}
 
-由於Sana是一個很調皮的小孩，很喜歡到處亂跑，有時甚至會跑出洞穴到處捉弄人，因此由Sana共鳴產生的夢想世界大小會隨著她的移動有所改變，不過根據理論推算，夢想世界的範圍會是包含洞穴與Sana的最小凸多邊形圍起來的部分。身為資深的研究員，假設Sana是一個點，給定洞穴的與Sana位置的座標是否能求出Sana夢想世界的面積大小呢？
 
 \InputFile
 
