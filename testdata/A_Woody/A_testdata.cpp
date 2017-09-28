@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "../testlib.h"
 using namespace std;
 int _pow10[]={1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
@@ -7,7 +8,7 @@ int main(int argc, char* argv[]){
 	for(int q=1;q<=2;q++){
 		for(int w=1;w<=25;w++){
 			stringstream ss;
-			ss<<"data/"<<(q<10?"0":"")<<q<<(w<10?"0":"")<<w<<".in";
+			ss<<"data/"<<setfill('0')<<setw(2)<<q<<setw(2)<<w<<".in";
 			fstream f;
 			f.open(ss.str().c_str(), ios::out);
 			
@@ -19,4 +20,3 @@ int main(int argc, char* argv[]){
 		}
 	}
 }
-
