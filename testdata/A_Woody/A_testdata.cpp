@@ -12,7 +12,7 @@ int main(int argc, char* argv[]){
 	for(int q=1;q<=2;q++){
 		for(int w=1;w<=25;w++){
 			stringstream ss;
-			ss<<(q<10?"0":"")<<q<<(w<10?"0":"")<<w<<".in";
+			ss<<"data/"<<(q<10?"0":"")<<q<<(w<10?"0":"")<<w<<".in";
 			fstream f;
 			f.open(ss.str().c_str(), ios::out);
 			
