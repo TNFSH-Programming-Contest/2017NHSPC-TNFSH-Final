@@ -10,7 +10,7 @@ int main(int argc, char* argv[]){
 			stringstream ss;
 			ss<<"data/"<<setfill('0')<<setw(2)<<q<<setw(2)<<w<<".in";
 			fstream f;
-			f.open(ss.str().c_str(), ios::out);
+			f.open(ss.str().c_str(), ios::binary|ios::out);
 			
 			int range1 = _pow10[rnd.next(1, 8)] - 1;
 			int range2 = _pow10[rnd.next(1, 4)] - 1;

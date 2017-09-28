@@ -50,4 +50,4 @@ sha1sum data/0223.in
 sha1sum data/0224.in
 sha1sum data/0225.in
 ) > checksum.tmp
-diff -b checksum.tmp checksum.txt
+diff checksum.tmp checksum.txt
