@@ -2,47 +2,64 @@
 \gdef\thisproblemauthor{}
 \gdef\thisproblemdeveloper{}
 \gdef\thisproblemorigin{}
-\begin{problem}{磨樹 Woody}
+\begin{problem}{膜術 PrimeCake}
 {standard input}{standard output}
-{0.5 seconds}{512 MB}{}
+{2 seconds}{512 MB}{}
 
-Woody 是一位有著美學堅持的伐木工 \newline
-他擁有一座森林，裡面的樹木都擁有方形樹幹 ( 如此完美！) \newline
-他每天都會進行一次將樹幹磨得更細的工程 \newline
-對於每棵樹選取接近根部的一小段樹幹，依圖中方式磨細 \newline
-\newline
-更精確地說，每次取橫切面 ( 正方形 ) 的中點連線 \newline
-形成成較小的，旋轉 45 度的方形 \newline
-再將這個小方形以外的部分磨掉 \newline
-\newline
-已之樹幹在截面積 $ \leq A $ 時會倒掉 \newline
-給定一棵樹在第 0 天時的寬度 $ L $ \newline
-Woody 從第 1 天開始磨樹 \newline
-求這顆樹在第幾天會於磨樹途中或恰結束時倒掉 \newline
+這裡是兩個維度王國\newline
+很久很久以前，巨龍突然出現，帶來災難，帶走了公主又消失不見\newline
+王國十分危險，國王請來國內科技巨擎 -- 達拉崩巴 --，架設防禦設施\newline
+達拉崩巴提出了使用防護膜的計畫阻止龍從空中入侵\newline
+這種防禦膜架設在國內 N 根電線桿上，形成一條長長的折線\newline
 
-\centerline{\includegraphics[scale=0.6]{./pics/A.png}}
+\centerline{\includegraphics[height=15em]{./pics/D-1.png}}
+
+因為是兩個維度王國，電線桿當然只能排成一直線\newline
+而基於美學，這 N 根電線桿雖然高矮不同，但堅持相鄰兩根相隔一公尺\newline
+\newline
+因為由電線桿直接供電，所以盡可能希望與較多電線桿接觸\newline
+\newline
+然而，該材質限制不能轉折超過角度 D ，否則會斷裂\newline
+例如下圖中紅色 X 的地方\newline
+
+\centerline{\includegraphics[height=25em]{./pics/D-2.png}}
+
+而且也不能被某根電線桿刺穿\newline
+例如：\newline
+
+\centerline{\includegraphics[width=25em]{./pics/D-3.png}}
+
+因此有時候我們不得不放棄與某些電線桿接觸\newline
+但為了包覆整個王國，一定要起於第一根、結束於最後一根\newline
+\newline
+\newline
+你，達拉崩巴\newline
+請找出能接觸到最多電線桿，能完整包住，而又不會斷裂的包膜方法吧！\newline
 
 
 \InputFile
 
-輸入只有兩行。第一行有$4$個整數$x_1,y_1,x_2,y_2$，表示洞穴的對角兩點的座標，洞穴的邊與座標軸平行或垂直，第二行有兩個整數$x,y$表示Sana目前的位置
+輸入 2 個正整數 $N$,$D$ ，表示有 $N$ 根電線桿，角度限制 $D$ 度 \newline
+下一行有 $N$ 個正整數，表示每根電線桿的高度 ( 單位為公尺 ) \newline
 
 \begin{iofmt}
 \begin{itemize}
-	\item $x_1\leq x_2$
-	\item $y_1\leq y_2$
-	\item $|x,y,x_1,x_2,y_1,y_2|\leq 10000$
+	\item $1 \leq N \leq 10^4$
+	\item 有 5 分的測試資料 $N \leq 15$
+	\item 有 15 分的測試資料 $N \leq 100$
 \end{itemize}
 \end{iofmt}
 
 \OutputFile
 
-請輸出夢想世界的面積，輸出到小數點後第$1$位。
+輸出一個正整數，表示最多能跟幾根電線桿相接觸\newline
+要是沒辦法找出符合條件的包法，輸出 "-1" ( 不含引號 )\newline
 
 \Examples
 
 \begin{example}
-\exmpfile{./sample/PA-in.txt}{./sample/PA-out.txt}%
+% \exmpfile{./sample/PC-01.in.txt}{./sample/PC-01.out.txt}%
+% \exmpfile{./sample/PC-02.in.txt}{./sample/PC-02.out.txt}%
 \end{example}
 
 \end{problem}

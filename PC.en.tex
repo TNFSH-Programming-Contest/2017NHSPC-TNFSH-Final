@@ -2,47 +2,63 @@
 \gdef\thisproblemauthor{}
 \gdef\thisproblemdeveloper{}
 \gdef\thisproblemorigin{}
-\begin{problem}{磨樹 Woody}
+\begin{problem}{魔樹 OldTree}
 {standard input}{standard output}
-{0.5 seconds}{512 MB}{}
+{2 seconds}{512 MB}{}
 
-Woody 是一位有著美學堅持的伐木工 \newline
-他擁有一座森林，裡面的樹木都擁有方形樹幹 ( 如此完美！) \newline
-他每天都會進行一次將樹幹磨得更細的工程 \newline
-對於每棵樹選取接近根部的一小段樹幹，依圖中方式磨細 \newline
+傳說，在府城第零高級中學中央的大榕樹擁有強大的魔性\newline
+校園裡也因此流傳著許多圍繞著大榕樹的傳說 -- 那些人們不以為意的事\newline
+然而那一天，人類回想起了，一度被支配的恐懼...\newline
 \newline
-更精確地說，每次取橫切面 ( 正方形 ) 的中點連線 \newline
-形成成較小的，旋轉 45 度的方形 \newline
-再將這個小方形以外的部分磨掉 \newline
+2087年8月7日 晚間 8點07分\newline
+他，再次甦醒了\newline
+其盤根汲取生命，其枝葉揮舞恐懼，其果實凝結黑暗...\newline
+人類的力量在其面前顯得微不足道\newline
+然而，希望的光芒並沒有消滅\newline
+人們找到了削弱他力量的方式 -- 斷根\newline
 \newline
-已之樹幹在截面積 $ \leq A $ 時會倒掉 \newline
-給定一棵樹在第 0 天時的寬度 $ L $ \newline
-Woody 從第 1 天開始磨樹 \newline
-求這顆樹在第幾天會於磨樹途中或恰結束時倒掉 \newline
-
-\centerline{\includegraphics[scale=0.6]{./pics/A.png}}
+大榕樹的根擁有吸取生命並儲存的力量，並且以神奇的方式盤據各處\newline
+當樹根交會時會形成一個魔瘤，根據其大小儲存多寡不一的一些生命力\newline
+只要準備一些道具、進行一些儀式，就能把魔瘤消除，削弱大榕樹的力量\newline
+然而儀式需要的道具短缺，只容許進行消除一個魔瘤\newline
+\newline
+魔瘤拔除後，原本直接連接到此魔瘤的根便不再透過此處連接\newline
+而僅有以主幹直接或間接 ( 經過其他魔瘤 ) 相接的魔瘤，能成為大榕樹的生命力來源\newline
+因此選擇對的魔瘤進行消除，可能可以讓其他的魔瘤也一起被從大榕樹排除掉！\newline
+\newline
+\newline
+先遣的調查隊已經整理出所有魔瘤的連接關係：\newline
+以編號 $1 \sim N$ 表示 $N$ 個魔瘤，編號 0 表示樹的主幹\newline
+以 $M$ 個整數對 (a,b) 表示編號 a 和 編號 b 之間有根直接連接\newline
+請根據這些連接關係找出，消除後能讓大榕樹減少最多儲存生命力的魔瘤吧！\newline
 
 
 \InputFile
 
-輸入只有兩行。第一行有$4$個整數$x_1,y_1,x_2,y_2$，表示洞穴的對角兩點的座標，洞穴的邊與座標軸平行或垂直，第二行有兩個整數$x,y$表示Sana目前的位置
+第 1 行：2個正整數 $N$,$M$ (空白分隔) ，表示有 $N$ 個魔瘤、$M$ 個連接關係 \newline
+第 2 行：$N$ 個正整數，表示編號 $1 \sim N$ 的瘤分別存有多少生命力 \newline
+第 3 行以後：$M$ 對正整數 a,b (空白分隔，每對佔一行) \newline
+                      表示 編號 a, 編號 b 之間有根直接相連接  \newline
 
 \begin{iofmt}
 \begin{itemize}
-	\item $x_1\leq x_2$
-	\item $y_1\leq y_2$
-	\item $|x,y,x_1,x_2,y_1,y_2|\leq 10000$
+	\item $N \leq 10^4$
+	\item $M \leq N \times (N-1)$
+	\item 有 16 分的測試資料 $M = N$，且所有瘤都與主幹直接或間接相連
+	\item 有 17 分的測試資料 $N \leq 1000$
 \end{itemize}
 \end{iofmt}
 
 \OutputFile
 
-請輸出夢想世界的面積，輸出到小數點後第$1$位。
+輸出一個正整數，表示消去後可以讓大榕樹損失最多生命力的魔瘤的編號 \newline
+若有多個魔瘤都能達到同樣的效果，則輸出編號最小的 \newline
 
 \Examples
 
 \begin{example}
-\exmpfile{./sample/PA-in.txt}{./sample/PA-out.txt}%
+\exmpfile{./sample/PC-01.in.txt}{./sample/PC-01.out.txt}%
+\exmpfile{./sample/PC-02.in.txt}{./sample/PC-02.out.txt}%
 \end{example}
 
 \end{problem}

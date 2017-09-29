@@ -2,47 +2,59 @@
 \gdef\thisproblemauthor{}
 \gdef\thisproblemdeveloper{}
 \gdef\thisproblemorigin{}
-\begin{problem}{磨樹 Woody}
+\begin{problem}{模數 Modular}
 {standard input}{standard output}
-{0.5 seconds}{512 MB}{}
+{2 seconds}{512 MB}{}
 
-Woody 是一位有著美學堅持的伐木工 \newline
-他擁有一座森林，裡面的樹木都擁有方形樹幹 ( 如此完美！) \newline
-他每天都會進行一次將樹幹磨得更細的工程 \newline
-對於每棵樹選取接近根部的一小段樹幹，依圖中方式磨細 \newline
+Jill 最喜歡糖果了！\newline
+為此她想開一間自己的糖果工廠來滿足無止盡的糖果欲！\newline
 \newline
-更精確地說，每次取橫切面 ( 正方形 ) 的中點連線 \newline
-形成成較小的，旋轉 45 度的方形 \newline
-再將這個小方形以外的部分磨掉 \newline
+這間工廠除了生產糖果以外還要兼顧美感和娛樂性，其中包裝糖果是個很重要的工作。\newline
+包裝的工作由一個巨大的包裝器負責，這個包裝器由 N 道等待隊列組成，由左至右編號成 0 ~ N-1。包裝器會不定時的接收產出的一些糖果，並將這批糖果塞進其中一個隊列，等待包裝。每次包裝時，機器會選取一段連續的區間 [ L , R ]，將 R-L+1 個容量為 v 的包裝運至這些編號的隊列下方，而後區間中每個隊列落下 v 個糖果，進行包裝。要是隊列中沒有 v 個以上的糖果，那這個隊列將不會落下任何糖果 ( 沒裝滿太失禮了！)\newline
 \newline
-已之樹幹在截面積 $ \leq A $ 時會倒掉 \newline
-給定一棵樹在第 0 天時的寬度 $ L $ \newline
-Woody 從第 1 天開始磨樹 \newline
-求這顆樹在第幾天會於磨樹途中或恰結束時倒掉 \newline
-
-\centerline{\includegraphics[scale=0.6]{./pics/A.png}}
+為了確認生產過程的視覺效果，Jill 需要模擬生產行為，其中視覺效果的關鍵就在於隊列中的糖果堆放數量差異。Jill 將會給你一些生產過程的事件，並且不定時詢問你某個區間 [l,r] 內的隊列之中，堆放最多和最少糖果的兩者幾個糖果。\newline
+\newline
+※每個隊列的容量都很大，不需要考慮滿出來的問題\newline
 
 
 \InputFile
 
-輸入只有兩行。第一行有$4$個整數$x_1,y_1,x_2,y_2$，表示洞穴的對角兩點的座標，洞穴的邊與座標軸平行或垂直，第二行有兩個整數$x,y$表示Sana目前的位置
+\begin{verbatim}
+一個正整數 N 表示隊列數量
+下一行一個正整數 M 表示接下來有 M 個事件或來自 Jill 的詢問
+接下來 M 行每行輸入一個事件或詢問
+每行第一個正整數 K 表示這行是代表什麼事件或詢問
+說明如下：
+    K=1 =>[ 將糖果塞進隊列 ]
+            接著會輸入兩個正整數 x, i
+    表示將x個糖果放進編號 i 的隊列
+    K=2 => [ 進行包裝 ]
+            接著輸入三個整數 L,R,v
+            表示編號 L 到 R 的隊列要進行容量為 v 的包裝
+    K=3 => [ Jill 的詢問 ]
+            接著輸入兩個正整數 L,R
+            表示 Jill 想知道 編號 L 到 R 之中堆放最多和最少的差異
+\end{verbatim}
+
 
 \begin{iofmt}
 \begin{itemize}
-	\item $x_1\leq x_2$
-	\item $y_1\leq y_2$
-	\item $|x,y,x_1,x_2,y_1,y_2|\leq 10000$
+	\item $1 \leq N \leq 10^4$
+	\item 有 5 分的測試資料 $N \leq 15$
+	\item 有 15 分的測試資料 $N \leq 100$
 \end{itemize}
 \end{iofmt}
 
 \OutputFile
 
-請輸出夢想世界的面積，輸出到小數點後第$1$位。
+輸出一個正整數，表示最多能跟幾根電線桿相接觸\newline
+要是沒辦法找出符合條件的包法，輸出 "-1" ( 不含引號 )\newline
 
 \Examples
 
 \begin{example}
-\exmpfile{./sample/PA-in.txt}{./sample/PA-out.txt}%
+% \exmpfile{./sample/PC-01.in.txt}{./sample/PC-01.out.txt}%
+% \exmpfile{./sample/PC-02.in.txt}{./sample/PC-02.out.txt}%
 \end{example}
 
 \end{problem}
