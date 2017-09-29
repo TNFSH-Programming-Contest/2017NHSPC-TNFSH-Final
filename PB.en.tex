@@ -2,40 +2,35 @@
 \gdef\thisproblemauthor{}
 \gdef\thisproblemdeveloper{}
 \gdef\thisproblemorigin{}
-\begin{problem}{磨樹 Woody}
+\begin{problem}{魔數 MagicNumber}
 {standard input}{standard output}
-{0.5 seconds}{512 MB}{}
+{2 seconds}{512 MB}{}
 
-Woody 是一位有著美學堅持的伐木工 \newline
-他擁有一座森林，裡面的樹木都擁有方形樹幹 ( 如此完美！) \newline
-他每天都會進行一次將樹幹磨得更細的工程 \newline
-對於每棵樹選取接近根部的一小段樹幹，依圖中方式磨細 \newline
+多門很喜歡一些很多門的數\newline
+一個數字要很多門，需要對於某些正整數K，在 2^K 進位下能找到連續的三個1\newline
 \newline
-更精確地說，每次取橫切面 ( 正方形 ) 的中點連線 \newline
-形成成較小的，旋轉 45 度的方形 \newline
-再將這個小方形以外的部分磨掉 \newline
+例如：\newline
+7 在 2 進位 ($2^1$進位) 下是 111\newline
+84 在 4 進位($2^2$進位) 下是 1110\newline
 \newline
-已之樹幹在截面積 $ \leq A $ 時會倒掉 \newline
-給定一棵樹在第 0 天時的寬度 $ L $ \newline
-Woody 從第 1 天開始磨樹 \newline
-求這顆樹在第幾天會於磨樹途中或恰結束時倒掉 \newline
-
-\centerline{\includegraphics[scale=0.8]{./pics/A.png}}
+給定一個16進位表示的數字 $N$\newline
+請幫多門找出 $N$ 對於哪些 $K$ 會符合很多門的條件\newline
 
 \InputFile
 
-輸入 2 個正整數 $ A $, $ L $ \newline
-用空白分隔
+輸入一個 16 進位表示（英文為小寫）的正整數 $N$
 \begin{iofmt}
 \begin{itemize}
-	\item $ A \leq 10^8 $
-	\item $ L \leq 10^4 $
+	\item $N \leq 16^{10^6}$
+	\item 有 11 分的測試資料 $N \leq 16^5$
+	\item 有 22 分的測試資料 $N \leq 16^5$
 \end{itemize}
 \end{iofmt}
 
 \OutputFile
 
-輸出一個整數，表示第幾天倒下
+輸出所有可行的 $K$ \newline
+每個佔一行
 
 \Examples
 
