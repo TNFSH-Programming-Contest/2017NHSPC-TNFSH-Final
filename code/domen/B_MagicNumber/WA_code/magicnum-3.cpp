@@ -26,9 +26,6 @@ int main()
 		str.push_back((t>>1)&1);
 		str.push_back((t>>0)&1);
 	}
-	//for(int i=0;i<str.size();i++)
-	//	cout<<str[i];
-	//cout<<endl;
 	int n=str.size();
 	str.push_back(1);
 	reverse(str.begin(),str.end());
@@ -46,10 +43,9 @@ int main()
 	{
 		int cnt=0;
 		bool succ=0;
-		for(int j=i;j-i+1<=n;j+=i)
+		for(int j=i;j<=n;j+=i)
 		{
-			bool tmpz = j<=n ? (zero[j]>=i-1) : (zero[n]>=n-(j-i+1));
-			if(str[j-i+1] && tmpz) cnt++;
+			if(str[j-i+1] && zero[j]>=i-1) cnt++;
 			else cnt=0;
 			if(cnt>=3)
 			{

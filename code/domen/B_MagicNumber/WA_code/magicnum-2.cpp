@@ -21,10 +21,10 @@ int main()
 	{
 		int t=chex[c];
 		assert(t>=0);
-		str.push_back((t>>3)&1);
-		str.push_back((t>>2)&1);
-		str.push_back((t>>1)&1);
 		str.push_back((t>>0)&1);
+		str.push_back((t>>1)&1);
+		str.push_back((t>>2)&1);
+		str.push_back((t>>3)&1);
 	}
 	//for(int i=0;i<str.size();i++)
 	//	cout<<str[i];
