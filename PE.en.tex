@@ -19,36 +19,35 @@ Jill 最喜歡糖果了！\newline
 
 \InputFile
 
-\begin{verbatim}
-一個正整數 N 表示隊列數量
-下一行一個正整數 M 表示接下來有 M 個事件或來自 Jill 的詢問
-接下來 M 行每行輸入一個事件或詢問
-每行第一個正整數 K 表示這行是代表什麼事件或詢問
+一個正整數 $N$ 表示隊列數量 \newline
+下一行一個正整數 $M$ 表示接下來有 $M$ 個事件或來自 Jill 的詢問 \newline
+接下來 $M$ 行每行輸入一個事件或詢問 \newline
+每行第一個正整數 $K$ 表示這行是代表什麼事件或詢問 \newline \newline
 說明如下：
-    K=1 =>[ 將糖果塞進隊列 ]
-            接著會輸入兩個正整數 x, i
-    表示將x個糖果放進編號 i 的隊列
-    K=2 => [ 進行包裝 ]
-            接著輸入三個整數 L,R,v
-            表示編號 L 到 R 的隊列要進行容量為 v 的包裝
-    K=3 => [ Jill 的詢問 ]
-            接著輸入兩個正整數 L,R
-            表示 Jill 想知道 編號 L 到 R 之中堆放最多和最少的差異
-\end{verbatim}
-
-
-\begin{iofmt}
 \begin{itemize}
-	\item $1 \leq N \leq 10^4$
-	\item 有 5 分的測試資料 $N \leq 15$
-	\item 有 15 分的測試資料 $N \leq 100$
+\item $K=1$ $\Rightarrow$ [ 將糖果塞進隊列 ] \\
+            接著會輸入兩個正整數 $x$, $i$ \\
+            表示將x個糖果放進編號 $i$ 的隊列
+\item $K=2$ $\Rightarrow$ [ 進行包裝 ] \\
+            接著輸入三個整數 $L$,$R$,$v$ \\
+            表示編號 $L$ 到 $R$ 的隊列要進行容量為 $v$ 的包裝
+\item $K=3$ $\Rightarrow$ [ Jill 的詢問 ] \\
+            接著輸入兩個正整數 $L$,$R$ \\
+            表示 Jill 想知道 編號 $L$ 到 $R$ 之中堆放最多和最少的差異
 \end{itemize}
-\end{iofmt}
+
+% todo
+% \begin{iofmt}
+% \begin{itemize}
+% 	\item $1 \leq N \leq 10^4$
+% 	\item 有 5 分的測試資料 $N \leq 15$
+% 	\item 有 15 分的測試資料 $N \leq 100$
+% \end{itemize}
+% \end{iofmt}
 
 \OutputFile
 
-輸出一個正整數，表示最多能跟幾根電線桿相接觸\newline
-要是沒辦法找出符合條件的包法，輸出 "-1" ( 不含引號 )\newline
+對於每個詢問，輸出一個正整數，表示區間內最多糖果與最少糖果的差
 
 \Examples
 
