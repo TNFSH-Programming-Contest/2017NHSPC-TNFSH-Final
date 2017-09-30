@@ -9,25 +9,25 @@
 
 using namespace std;
 
-
+typedef long long LL;
 const double PI = acos(-1.0);
 
-double toDeg(double t){ return t/PI*180.0; };
+double toDeg(double t){ return t*180.0/PI; };
 
 struct Vec2
 {
-	double x,y;
+	LL x,y;
 	
-	double mag()const{ return sqrt(x*x+y*y); };
+	LL mag()const{ return sqrt(x*x+y*y); };
 	
 	Vec2(){ x=y=0; };
-	Vec2(double _x, double _y){ x=_x; y=_y; };
+	Vec2(LL _x, LL _y){ x=_x; y=_y; };
 };
 
 inline Vec2 operator + (const Vec2 &A, const Vec2 &B){ return Vec2(A.x+B.x, A.y+B.y); }
 inline Vec2 operator - (const Vec2 &A, const Vec2 &B){ return Vec2(A.x-B.x, A.y-B.y); }
-inline double operator * (const Vec2 &A, const Vec2 &B){ return A.x*B.x + A.y*B.y; }
-inline double operator ^ (const Vec2 &A, const Vec2 &B){ return A.x*B.y - A.y*B.x; }
+inline LL operator * (const Vec2 &A, const Vec2 &B){ return A.x*B.x + A.y*B.y; }
+inline LL operator ^ (const Vec2 &A, const Vec2 &B){ return A.x*B.y - A.y*B.x; }
 
 
 double Angle(const Vec2& A, const Vec2& B, const Vec2& C) {
@@ -35,9 +35,7 @@ double Angle(const Vec2& A, const Vec2& B, const Vec2& C) {
 	Vec2 v2 = C-B;
 	return
 		toDeg(
-			acos(
-				(v1*v2) / (v1.mag()*v2.mag())
-			)
+			abs( atan2((double)v1.y, (double)v1.x) - atan2((double)v2.y, (double)v2.x) )
 		);
 }
 
