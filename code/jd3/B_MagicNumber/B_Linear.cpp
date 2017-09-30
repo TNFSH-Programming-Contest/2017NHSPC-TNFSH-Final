@@ -1,6 +1,6 @@
 /*
 	pB. MagicNumber
-	jd3 0929 update
+	jd3 0930 update
 */
 #include <iostream>
 #include <cstdio>
@@ -72,7 +72,7 @@ int main()
 	set<int> ans;
 	for(int i=0; i+2<len.size(); i++)
 	{
-		if( len[i]==len[i+1] && len[i+1]==len[i+2] && pos[i]%len[i] == 0 )
+		if( len[i]==len[i+1] && len[i+1]<=len[i+2] && pos[i]%len[i] == 0 )
 			ans.insert( len[i] );
 	}
 	
