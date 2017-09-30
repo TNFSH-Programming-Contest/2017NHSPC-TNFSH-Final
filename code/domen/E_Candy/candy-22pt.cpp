@@ -5,6 +5,9 @@ int a[200000];
 int mx=0;
 int main()
 {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+
 	int n;
 	cin>>n;
 	assert(n<=200000 && n>0);
