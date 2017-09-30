@@ -10,34 +10,20 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-struct STNode
-{
-	int max, min;
-	STNode( int x=0 ){ this->max = this->min = x; }
-};
-
-STNode operator + ( const STNode& A, const STNode& B)
-{
-	STNode C;
-	C.max = max(A.max, B.max);
-	C.min = min(A.min, B.min);
-	return C;
-}
-
 struct SegTree
 {
 	int count = 0;
 	int width = 0;
-	STNode *a;
+	int *a;
 	
 	int leaf(int i){ return width+i; };
 	int lch(int i){ return (i<<1); }
 	int rch(int i){ return (i<<1)+1; }
 	
-	int GetMax(){ return a[1].max; }
+	int GetMax(){ return a[1]; }
 	
 	void Up(int i){
-		a[i] = a[lch(i)]+a[rch(i)];
+		a[i] = max(a[lch(i)], a[rch(i)]);
 	};
 	
 	void UpAll()
@@ -53,7 +39,7 @@ struct SegTree
 		while(width < n)
 			width <<= 1;
 		count = width*2-1;
-		a = new STNode[count+1];
+		a = new int[count+1];
 		
 		for(int i=1; i<=count; i++)
 			a[i] = 0;
@@ -62,7 +48,7 @@ struct SegTree
 	void Add(int x, int i)
 	{
 		i = leaf(i);
-		a[i] = a[i].max + x;
+		a[i] += x;
 		while(i>1)
 		{
 			i>>=1;
@@ -74,11 +60,11 @@ struct SegTree
 	{
 		if(L==l && R==r)
 		{
-			if(a[i].max < v)
+			if(a[i] < v)
 				return;
 			if(L==R)
 			{
-				a[i] = a[i].max%v;
+				a[i] %= v;
 				return;
 			}
 		}
