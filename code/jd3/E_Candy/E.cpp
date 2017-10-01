@@ -87,7 +87,7 @@ struct SegTree
 	
 	void Mod(int L, int R, int v)
 	{
-		_Mod(0, 0,width,L,R,v);
+		_Mod(0, 0,width-1,L,R,v);
 	}
 };
 
