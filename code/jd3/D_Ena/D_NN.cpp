@@ -54,7 +54,12 @@ void CalculateBlocking()
 	{
 		int high = i+1;
 		for(int j=i+1; j<n; j++)
-			blocked[i][j] = blocked[j][i] = ( ((P(high)-P(i)) ^ (P(j)-P(i))) < 0 );
+		{
+			if( ((P(high)-P(i)) ^ (P(j)-P(i))) < 0 )
+				blocked[i][j] = blocked[j][i] = true;
+			else
+				high = j;
+		}
 	}
 }
 
