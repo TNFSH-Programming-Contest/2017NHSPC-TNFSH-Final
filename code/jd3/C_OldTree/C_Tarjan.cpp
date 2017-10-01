@@ -108,7 +108,7 @@ int main()
 		}
 	}
 	
-	cout << max_id;	
+	cout << max_id << endl;	
 	
 	return 0;
 }
