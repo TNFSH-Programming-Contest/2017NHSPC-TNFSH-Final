@@ -49,7 +49,7 @@ int main()
 	for(int i=0;i<n;i++)
 	{
 		cin>>a[i];
-		assert(a[i]<=100'000'000 && a[i]>=1);
+		assert(a[i]<=100000000 && a[i]>=1);
 	}
 	build(0,n-1,1);
 
@@ -71,7 +71,7 @@ int main()
 		{
 			int l,r,v;
 			cin>>l>>r>>v;
-			assert(l>=0&&r>=0&&l<n&&r<n&&v>0&&v<=1'000'000);
+			assert(l>=0&&r>=0&&l<n&&r<n&&v>0&&v<=1000000);
 			mod(l,r,v,0,n-1,1);
 		}
 		else if(k==3)
