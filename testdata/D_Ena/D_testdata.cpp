@@ -4,6 +4,7 @@
 using namespace std;
 int tests[] = {0, 20, 20, 30, 30};
 int data[] = {0, 15, 15, 100, 10000};
+const int maxl = 1000;
 int main(int argc, char* argv[]) {
 	registerGen(argc, argv, 1);
 	int l;
@@ -19,10 +20,10 @@ int main(int argc, char* argv[]) {
 			if(q==1) d = 180;
 			else d = rnd.next(1, 180);
 			f<<n<<" "<<d<<endl;
-			l = rnd.next(1, 100);
+			l = rnd.next(1, maxl);
 			f<<l;
 			for(int e=1; e<n; e++) {
-				l = rnd.next(1, 100);
+				l = rnd.next(1, maxl);
 				f<<" "<<l;
 			}
 			f<<endl;
