@@ -33,7 +33,7 @@ int main()
 	for(int i=0;i<n;i++)
 	{
 		cin>>h[i];
-		assert(h[i]<=100 && h[i]>0);
+		assert(h[i]<=1000 && h[i]>0);
 	}
 	for(int i=0;i<n;i++)
 		for(int j=0;j<i;j++)
