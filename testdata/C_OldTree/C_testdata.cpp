@@ -78,7 +78,9 @@ int main(int argc, char* argv[]) {
 			e.clear();
 
 			int n = rnd.next(1, data[q]);
-			int m = rnd.next(n, n*(n+1)/2);
+			int m = rnd.next(n, max(n, min(n*5, n*(n+1)/2)));
+			
+			cout<<n<<" "<<m<<endl;
 			
 			MakeTree(n+1);
 			
@@ -97,7 +99,6 @@ int main(int argc, char* argv[]) {
 				}
 				m = min(m,(n+1)*n/2);
 			}
-			cout<<n<<" "<<m<<endl;
 			
 			f << n << " " << m << endl;
 			l = rnd.next(0, 10000);
