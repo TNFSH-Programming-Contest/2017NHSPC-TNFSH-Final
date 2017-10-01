@@ -18,8 +18,6 @@ struct Vec2
 {
 	LL x,y;
 	
-	LL mag()const{ return sqrt(x*x+y*y); };
-	
 	Vec2(){ x=y=0; };
 	Vec2(LL _x, LL _y){ x=_x; y=_y; };
 };
@@ -60,7 +58,7 @@ void CalculateBlocking()
 	}
 }
 
-void sol_DP(int n)
+void sol_DP()
 { 
 	// |  |  |
 	// k  i  j
@@ -144,7 +142,7 @@ int main()
 		cin >> h[i];
 	
 	
-	sol_DP(n);
+	sol_DP();
 	
 	/*
 	for(int i=0; i<n; i++)
