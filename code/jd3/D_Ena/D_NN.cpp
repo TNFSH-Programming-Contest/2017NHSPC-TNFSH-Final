@@ -90,7 +90,7 @@ void sol_DP(int n)
 		//	cout << "   front angle : ";
 			while( !k_que.empty() && Angle( P(k_que.front()), P(i), P(j)) > D )
 			{
-				cout << Angle( P(k_que.front()), P(i), P(j)) << " ";
+			//	cout << Angle( P(k_que.front()), P(i), P(j)) << " ";
 				k_que.pop_front();
 			}
 			/*
@@ -121,7 +121,7 @@ void sol_DP(int n)
 					break;
 			}
 			
-			if(!k_que.empty())
+			if(!k_que.empty() && v[k_que.front()][i]!=(-1))
 				v[i][j] = v[k_que.front()][i]+1;
 			else
 				v[i][j] = (-1);
@@ -159,7 +159,7 @@ int main()
 	for(int i=0; i<n; i++)
 		ans = max(ans,v[i][n-1]);
 	
-	cout << ans;
+	cout << ans << endl;
 	
 	return 0;
 }
