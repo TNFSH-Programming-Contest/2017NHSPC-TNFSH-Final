@@ -70,6 +70,7 @@ int main(int argc, char* argv[]) {
 		for(int w=1; w<=tests[q]; w++) {
 			stringstream ss;
 			ss<<"data/"<<setfill('0')<<setw(2)<<q<<setw(2)<<w<<".in";
+			cout<<ss.str()<<endl;
 			fstream f;
 			f.open(ss.str().c_str(), ios::binary|ios::out);
 
@@ -77,7 +78,7 @@ int main(int argc, char* argv[]) {
 			e.clear();
 
 			int n = rnd.next(1, data[q]);
-			int m = rnd.next(n, data[q]*(data[q]-1));
+			int m = rnd.next(n, n*(n+1)/2);
 			
 			MakeTree(n+1);
 			
@@ -96,6 +97,7 @@ int main(int argc, char* argv[]) {
 				}
 				m = min(m,(n+1)*n/2);
 			}
+			cout<<n<<" "<<m<<endl;
 			
 			f << n << " " << m << endl;
 			l = rnd.next(0, 10000);
