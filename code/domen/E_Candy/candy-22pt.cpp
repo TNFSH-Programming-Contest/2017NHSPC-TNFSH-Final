@@ -14,7 +14,7 @@ int main()
 	for(int i=0;i<n;i++)
 	{
 		cin>>a[i];
-		assert(a[i]<=100000000 && a[i]>=1);
+		assert(a[i]<=100'000'000 && a[i]>=1);
 		mx=max(mx,a[i]);
 	}
 
