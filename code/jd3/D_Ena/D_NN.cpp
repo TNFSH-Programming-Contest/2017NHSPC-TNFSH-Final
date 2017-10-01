@@ -136,7 +136,7 @@ void sol_DP(int n)
 	}
 	
 }
-
+	
 int main()
 {
 	cin >> n >> D;
