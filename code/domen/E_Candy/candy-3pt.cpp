@@ -1,3 +1,4 @@
+// domen 3pt
 #include <iostream>
 #include <cassert>
 using namespace std;
