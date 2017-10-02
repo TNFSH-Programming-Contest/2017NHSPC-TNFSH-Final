@@ -11,12 +11,12 @@ using namespace std;
 #define endl '\n'
 
 
-int w[20000];
-vector<int> g[20000];
+int w[100011];
+vector<int> g[100011];
 
-int dfn[20000];
-int low[20000];
-int sum[20000];
+int dfn[100011];
+int low[100011];
+int sum[100011];
 
 int next_dfn()
 {
@@ -26,7 +26,6 @@ int next_dfn()
 
 void DFS(int i, int father)
 {
-	//cout << "i=" << i << endl;
 	low[i] = dfn[i] = next_dfn();
 	for(int k=0; k<g[i].size(); k++)
 	{
@@ -52,28 +51,10 @@ void Tarjan(int n, int st)
 	memset(dfn,-1,sizeof(dfn));
 	dfn[0] = next_dfn();
 	DFS(st,st);
-	
-	/*
-	printf("low : ");
-	for(int i=0; i<n; i++)
-		printf("%3d ",low[i]);
-	puts("");
-	printf("dfn : ");
-	for(int i=0; i<n; i++)
-		printf("%3d ",dfn[i]);
-	puts("");
-	printf("sum : ");
-	for(int i=0; i<n; i++)
-		printf("%3d ",sum[i]);
-	puts("");
-	*/
 }
 
 int main()
 {
-	//ios::sync_with_stdio(false);
-	//cin.tie(0);
-	
 	int n,m;
 	cin >>n >> m;
 	for(int i=1; i<=n; i++)
