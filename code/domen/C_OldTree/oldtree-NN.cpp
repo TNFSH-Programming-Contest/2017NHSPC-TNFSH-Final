@@ -24,7 +24,7 @@ int main()
 
 	int m;
 	cin>>n>>m;
-	assert(n<=100000 && m<=n*(n+1)/2 && n>=1 && m>=n);
+	assert(n<=100000 && m<=(long long)n*(n+1)/2 && m<=1000000 && n>=1 && m>=n);
 	for(int i=1;i<=n;i++)
 	{
 		cin>>v[i];
