@@ -26,8 +26,9 @@ int next_dfn()
 
 void DFS(int i, int father)
 {
-	low[i] = dfn[i] = next_dfn();
+	dfn[i] = next_dfn();
 	sum[i] = w[i];
+	low[i] = dfn[i]+1;
 	for(int k=0; k<g[i].size(); k++)
 	{
 		int j = g[i][k];
@@ -39,7 +40,8 @@ void DFS(int i, int father)
 		{
 			DFS(j,i);
 			low[i] = min( low[i], low[j] );
-			sum[i] += sum[j];
+			if(low[j] >= dfn[j])
+				sum[i] += sum[j];
 		}
 		else
 			low[i] = min(low[i], dfn[j]);
@@ -71,8 +73,13 @@ int main()
 {
 	int n,m;
 	cin >>n >> m;
+	
+	int total = 0;
 	for(int i=1; i<=n; i++)
+	{
 		cin >> w[i];
+		total += w[i];
+	}
 	
 	int a,b;
 	for(int i=0; i<m; i++)
@@ -88,24 +95,15 @@ int main()
 	int max_id = 0;
 	for(int i=1; i<=n; i++)
 	{
-		if(low[i] >= dfn[i] && sum[i] > max_sum)
+		if( sum[i] > max_sum)
 		{
 			max_sum = sum[i];
 			max_id = i;
 		}
 	}
 	
-	for(int i=1; i<=n; i++)
-	{
-		if(w[i] > max_sum)
-		{
-			max_sum = w[i];
-			max_id = i;
-		}
-	}
-	
-	
 	cout << max_id << endl;
+	
 	
 	return 0;
 }

@@ -10,9 +10,9 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-int w[100001];
-vector<int> g[100001];
-bool vist[100001];
+int w[100011];
+vector<int> g[100011];
+bool vist[100011];
 int DFS(int i)
 {
 	vist[i] = true;
@@ -31,8 +31,13 @@ int main()
 {
 	int n,m;
 	cin >> n >>m;
+	
+	int total = 0;
 	for(int i=1; i<=n; i++)
+	{
 		cin >> w[i];
+		total += w[i];
+	}
 	
 	int a,b;
 	for(int i=0; i<m; i++)
@@ -50,6 +55,8 @@ int main()
 		vist[i] = true;
 		int sum = DFS(0);
 		
+		//cout << "sum["<<i<<"] = " << total-sum << endl; 
+				
 		if(sum<min_sum)
 		{
 			min_sum = sum;
