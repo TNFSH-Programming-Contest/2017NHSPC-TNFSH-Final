@@ -73,26 +73,18 @@ int main()
 		for(int j=0;j<i;j++)
 		{
 			if(!conn[i][j])
-			{
 				dp[i][j]=-INF-2;
-				//assert(j!=i-1);
-			}
 			else if(j==0)
 				dp[i][j]=2;
 			else
 			{
 				dp[i][j]=-INF;
 				for(int k=0;k<j;k++)
-				{
 					if(conn[j][k])
 					{
 						if(calc_degree(p(k), p(j), p(i)) < d)
 							dp[i][j] = max(dp[i][j], dp[j][k] + 1);
-						//cout<<calc_degree(p(k), p(j), p(i))<<endl;
 					}
-					//else if(j==i-1 && k==j-1)
-					//	cout<<k<<' '<<i<<' '<<j<<endl;
-				}
 			}
 		}
 	}
