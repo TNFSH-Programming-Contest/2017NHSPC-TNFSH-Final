@@ -4,7 +4,7 @@
 \gdef\thisproblemorigin{}
 \begin{problem}{膜術 Ena}
 {standard input}{standard output}
-{2 seconds}{512 MB}{}
+{5 seconds}{512 MB}{}
 
 這裡是兩個維度王國\newline
 很久很久以前，巨龍突然出現，帶來災難，帶走了公主又消失不見\newline
@@ -19,7 +19,7 @@
 \newline
 因為由電線桿直接供電，所以盡可能希望與較多電線桿接觸\newline
 \newline
-然而，該材質限制不能轉折超過角度 D ，否則會斷裂\newline
+然而，該材質限制不能轉折超過 $\pm D $ 度，否則會斷裂\newline
 例如下圖中紅色 X 的地方\newline
 
 \centerline{\includegraphics[height=25em]{./pics/D-2.png}}
@@ -46,7 +46,7 @@
 	\item $2 \leq N \leq 10^4$
     \item $0 < D \leq 180$
     \item $0 <$ $h_i$ $\leq 1000 $
-	\item 所有可能的角度和 D 之間保證有 $10^{-6}$ 以上的差距 (無論是否會斷裂) 
+%	\item 所有可能的角度和 D 之間保證有 $10^{-6}$ 以上的差距 (無論是否會斷裂) 
     \item 有 3 分的測試資料 $ D = 180 $
 	\item 有 10 分的測試資料 $N \leq 15$
 	\item 有 45 分的測試資料 $N \leq 100$
@@ -69,8 +69,8 @@
 \Note
 
 建議的計算角度方法： \\
-對於二維向量$A=(x_1,y_1),\ B=(x_2,y_2)$ 求兩向量間的角度 $t \ ^{\circ}$ \\
-$·t = abs( atan2(y_1,x_1) - atan2(y_2,x_2) ) * 180.0 / \pi\ \ $\\
+對於二維向量$A=(x_1,y_1),\ B=(x_2,y_2)$ 求 $A$ 至 $B$ 的角度 $t \ ^{\circ}$ \\
+$ t = (atan2(y_2,x_2) - atan2(y_1,x_1)) * 180.0 / \pi\ \ $\\
 其中 atan2 在 C++ 的 <cmath>，以及 C 的 <math.h> 可以找到\\
-$\pi$ 則可以用 acos(-1.0) 獲得
+$\pi$ 則以 acos(-1.0) 為準
 \end{problem}
