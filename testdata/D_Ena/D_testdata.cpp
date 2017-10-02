@@ -3,7 +3,7 @@
 #include "../testlib.h"
 using namespace std;
 int tests[] = {0, 20, 20, 30, 30};
-int data[] = {0, 15, 15, 100, 10000};
+int data[] = {0, 10000, 15, 100, 10000};
 const int maxl = 1000;
 int main(int argc, char* argv[]) {
 	registerGen(argc, argv, 1);
