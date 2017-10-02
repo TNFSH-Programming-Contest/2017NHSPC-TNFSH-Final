@@ -6,6 +6,7 @@
 #define X real()
 #define Y imag()
 #define INF 1000000
+#define MAXN 10000
 using namespace std;
 typedef complex<double> Point;
 double dot(Point a, Point b)
@@ -41,10 +42,10 @@ double calc_degree(Point a, Point b, Point c)
 	//if(cross(b-a, c-b)>0) return 180 - degree;
 	//else return -180 + degree;
 }
-int h[10000];
-int dp[10000][10000];
-bool conn[10000][10000];
-pair<int,int> from[10000][10000];
+int h[MAXN];
+int dp[MAXN][MAXN];
+bool conn[MAXN][MAXN];
+//pair<int,int> from[MAXN][MAXN];
 Point p(int i)
 {return Point(i,h[i]);}
 int main()
@@ -85,8 +86,8 @@ int main()
 					{
 						if(calc_degree(p(k), p(j), p(i)) < d)
 						{
-							if(dp[j][k] + 1 > dp[i][j])
-								from[i][j] = {j,k};
+							//if(dp[j][k] + 1 > dp[i][j])
+							//	from[i][j] = {j,k};
 							dp[i][j] = max(dp[i][j], dp[j][k] + 1);
 						}
 					}
