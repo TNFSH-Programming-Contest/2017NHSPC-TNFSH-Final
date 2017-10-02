@@ -33,7 +33,7 @@ double Angle(const Vec2& A, const Vec2& B, const Vec2& C) {
 	Vec2 v2 = C-B;
 	return
 		toDeg(
-			abs( atan2((double)v1.y, (double)v1.x) - atan2((double)v2.y, (double)v2.x) )
+			atan2((double)v2.y, (double)v2.x) - atan2((double)v1.y, (double)v1.x)
 		);
 }
 
@@ -81,47 +81,41 @@ void sol_DP()
 	
 	for(int i=1; i<n; i++)
 	{
-	//	cout << "i = " << i <<endl;
 		int kr=0;
 		deque<int> k_que;
 		for(int j=i+1; j<n; j++)
 		{
-		//	cout << "  j = " << j <<endl;
 			if( blocked[i][j] )
 				continue;
 			
-		//	cout << "   front angle : ";
 			while( !k_que.empty() && Angle( P(k_que.front()), P(i), P(j)) > D )
-			{
-			//	cout << Angle( P(k_que.front()), P(i), P(j)) << " ";
 				k_que.pop_front();
-			}
-			/*
-			if(k_que.size())
-				cout << Angle( P(k_que.front()), P(i), P(j));
-			cout << endl;
-			//	*/
 			
 			while( kr<i )
 			{
-			//	cout << "   k = " << kr << ", angle = " << Angle(P(kr), P(i), P(j)) << endl;
+				double angle = Angle(P(kr),P(i),P(j));
+				
 				if( blocked[kr][i] )
 				{
 					kr++;
 					continue;
 				}
-				else if( Angle(P(kr), P(i), P(j)) <= D)
+				else if(angle >= D)
+				{
+					kr++;
+					continue;
+				}
+				else if( abs(Angle(P(kr), P(i), P(j))) <= D )
 				{
 					while( !k_que.empty() && v[kr][i] > v[k_que.back()][i] )
 						k_que.pop_back();
 						
-				//	cout << "   push(" << kr << "), angle = " << setprecision(10) <<Angle(P(kr), P(i), P(j)) <<endl;
-				
 					k_que.push_back(kr);
 					kr++;
 				}
-				else
+				else {
 					break;
+				}
 			}
 			
 			if(!k_que.empty() && v[k_que.front()][i]!=(-1))
@@ -129,12 +123,6 @@ void sol_DP()
 			else
 				v[i][j] = (-1);
 			
-			/*
-			printf("   que : ");
-			for(auto it=k_que.begin(); it!=k_que.end(); it++)
-				cout << *it << ", ";
-			cout <<endl;
-			// */
 		}
 	}
 	
@@ -150,10 +138,15 @@ int main()
 	sol_DP();
 	
 	/*
+	cout <<"     ";
 	for(int i=0; i<n; i++)
+		cout << setw(3) << i << " ";
+	cout <<endl;
+	for(int i=0; i<n-1; i++)
 	{
+		cout << setw(3) << i << ": ";
 		for(int j=0; j<n; j++)
-			cout << v[i][j] << ", ";
+			cout << setw(3) << v[i][j] << ",";
 		cout <<endl;
 	}
 	// */

@@ -10,26 +10,39 @@
 #include "../testlib.h"
 using namespace std;
 
+#define MAX_N 100000
+#define MAX_V 10000
+
 int tests[] = {0, 33, 33, 34};
-int data[] = {0, 10000, 1000, 10000};
+int data[] = {0, MAX_N, 1000, MAX_N};
 
 //#define ISTREE
 
-struct Edge {
-	int a,b;
-};
+struct Edge { int a,b; };
+bool operator < (const Edge &A, const Edge &B){
+	if(A.a != B.a)
+		return A.a < B.a;
+	return A.b < B.b;
+}
 
-bool g[10003][10003];
+
+set<int> g[MAX_N+3];
 vector<Edge> e;
+
 
 void AddEdge(int a, int b)
 {
-	g[a][b] = g[b][a] = true;
+	g[a].insert(b);
+	g[b].insert(a);
 	e.push_back({a,b});
 }
+bool HasEdge(int a, int b) {
+	return g[a].find(b) != g[a].end();
+}
 
-/* Disjoint Set */
-static int pre[10011];
+
+/* == Build Tree (Disjoint Set) ===========*/
+static int pre[MAX_N+3];
 int Find(int a)
 {
 	if(pre[a]==a)
@@ -51,9 +64,6 @@ void MakeTree (int n)
 	{
 		int a = rnd.next(0, n-1);
 		int b = rnd.next(0, n-1);
-		
-		//cout << "a=" << a << ", find(a)=" << Find(a) << endl;
-		//cout << "b=" << b << ", find(b)=" << Find(b) << endl;
 		if(Find(a) != Find(b))
 		{
 			AddEdge(a,b);
@@ -62,6 +72,8 @@ void MakeTree (int n)
 		}
 	}
 }
+
+/* == Main =================================*/
 
 int main(int argc, char* argv[]) {
 	registerGen(argc, argv, 1);
@@ -74,24 +86,26 @@ int main(int argc, char* argv[]) {
 			fstream f;
 			f.open(ss.str().c_str(), ios::binary|ios::out);
 
-			memset(g,0,sizeof(g));
+			for(int e=0;e<MAX_N+3;e++) {
+				g[e].clear();
+			}
 			e.clear();
 
 			int n = rnd.next(1, data[q]);
-			int m = rnd.next(n, max(n, min(n*5, n*(n+1)/2)));
+			int m = rnd.next(n, max(n, min(n*10, n*(n+1)/2)));
 			
 			cout<<n<<" "<<m<<endl;
 			
 			MakeTree(n+1);
 			
-			if(q==1) {
+			if (q==1) {
 				m = n;
 			} else {
 				for(int i=n; i<m; )
 				{
 					int a = rnd.next(0, n);
 					int b = rnd.next(0, n);
-					if( g[a][b] )
+					if( !HasEdge(a,b) )
 					{
 						AddEdge(a,b);
 						i++;
@@ -101,10 +115,10 @@ int main(int argc, char* argv[]) {
 			}
 			
 			f << n << " " << m << endl;
-			l = rnd.next(0, 10000);
+			l = rnd.next(0, MAX_V);
 			f << l;
 			for(int i=1; i<n; i++) {
-				l = rnd.next(0, 10000);
+				l = rnd.next(0, MAX_V);
 				f << " " << l;
 			}
 			f << endl;
