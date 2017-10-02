@@ -44,6 +44,7 @@ double calc_degree(Point a, Point b, Point c)
 int h[10000];
 int dp[10000][10000];
 bool conn[10000][10000];
+pair<int,int> from[10000][10000];
 Point p(int i)
 {return Point(i,h[i]);}
 int main()
@@ -83,7 +84,11 @@ int main()
 					if(conn[j][k])
 					{
 						if(calc_degree(p(k), p(j), p(i)) < d)
+						{
+							if(dp[j][k] + 1 > dp[i][j])
+								from[i][j] = {j,k};
 							dp[i][j] = max(dp[i][j], dp[j][k] + 1);
+						}
 					}
 			}
 		}
@@ -108,6 +113,20 @@ int main()
 	int ans=-INF;
 	for(int i=0;i<n-1;i++)
 		ans=max(ans, dp[n-1][i]);
+	
+	//pair<int,int> now;
+	//for(int i=0;i<n-1;i++)
+	//	if(dp[n-1][i] == ans)
+	//	{
+	//		now={n-1,i};
+	//		break;
+	//	}
+	//while(now.first!=0)
+	//{
+	//	cout<<now.first<<endl;
+	//	now = from[now.first][now.second];
+	//}
+
 	if(ans<0) cout<<-1<<endl;
 	else cout<<ans<<endl;
 }
