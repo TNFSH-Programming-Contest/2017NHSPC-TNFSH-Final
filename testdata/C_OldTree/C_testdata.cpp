@@ -10,8 +10,9 @@
 #include "../testlib.h"
 using namespace std;
 
-#define MAX_N 100000
-#define MAX_V 10000
+const long long MAX_N = 100000;
+const long long MAX_M = 1000000;
+const int MAX_V = 10000;
 
 int tests[] = {0, 33, 33, 34};
 int data[] = {0, MAX_N, 1000, MAX_N};
@@ -92,7 +93,7 @@ int main(int argc, char* argv[]) {
 			e.clear();
 
 			int n = rnd.next(1, data[q]);
-			int m = rnd.next(n, max(n, min(n*10, n*(n+1)/2)));
+			int m = rnd.next((long long)n, max((long long)n, min(MAX_M, (long long)n*(n+1)/2 ) ) );
 			
 			cout<<n<<" "<<m<<endl;
 			
@@ -105,13 +106,12 @@ int main(int argc, char* argv[]) {
 				{
 					int a = rnd.next(0, n);
 					int b = rnd.next(0, n);
-					if( !HasEdge(a,b) )
+					if( !HasEdge(a,b) && a != b )
 					{
 						AddEdge(a,b);
 						i++;
 					}
 				}
-				m = min(m,(n+1)*n/2);
 			}
 			
 			f << n << " " << m << endl;
