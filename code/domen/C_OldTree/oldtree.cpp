@@ -62,7 +62,7 @@ int main()
 	{
 		int a,b;
 		cin>>a>>b;
-		assert(a>=0 && b>=0 && a<=n && b<=n);
+		assert(a>=0 && b>=0 && a<=n && b<=n && a!=b);
 		g[a].push_back(b);
 		g[b].push_back(a);
 		if(a>b)swap(a,b);
