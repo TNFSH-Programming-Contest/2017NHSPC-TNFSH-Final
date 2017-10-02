@@ -7,7 +7,7 @@ int data[] = {0, 10000, 15, 100, 10000};
 const int maxl = 1000;
 int main(int argc, char* argv[]) {
 	registerGen(argc, argv, 1);
-	int l;
+	int l, sl, c;
 	for(int q=1; q<=4; q++) {
 		for(int w=1; w<=tests[q]; w++) {
 			stringstream ss;
@@ -20,12 +20,29 @@ int main(int argc, char* argv[]) {
 			if(q==1) d = 180;
 			else d = rnd.next(1, 180);
 			f<<n<<" "<<d<<endl;
-			l = rnd.next(1, maxl);
-			f<<l;
-			for(int e=1; e<n; e++) {
+			
+			if(w<=5) {
+				sl = rnd.next(2, maxl);
+				f<<sl;
+				for(int e=1; e<n-1; e++) {
+					c = rnd.next(1, 5);
+					if(c<=1){
+						l = rnd.next(1, sl-1);
+					} else {
+						l = sl;
+					}
+					f<<" "<<l;
+				}
+				f<<" "<<sl;
+			} else {
 				l = rnd.next(1, maxl);
-				f<<" "<<l;
+				f<<l;
+				for(int e=1; e<n; e++) {
+					l = rnd.next(1, maxl);
+					f<<" "<<l;
+				}
 			}
+				
 			f<<endl;
 
 			f.close();
