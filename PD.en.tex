@@ -36,15 +36,18 @@
 你，達拉崩巴\newline
 請找出能接觸到最多電線桿，能完整包住王國，而又不會斷裂的包膜方法吧！\newline
 
-
 \InputFile
 
 輸入 2 個正整數 $N$,$D$ ，表示有 $N$ 根電線桿，角度限制 $D$ 度 \newline
-下一行有 $N$ 個正整數，表示每根電線桿的高度（單位為公尺 ）\newline
+下一行有 $N$ 個正整數$h_1,h_2,...,h_n$，表示每根電線桿的高度（單位為公尺 ）\newline
 
 \begin{iofmt}
 \begin{itemize}
-	\item $1 \leq N \leq 10^4$
+	\item $2 \leq N \leq 10^4$
+    \item $0 < D \leq 180$
+    \item $0 <$ $h_i$ $\leq 1000 $
+	\item 所有可能的角度和 D 之間保證有 $10^{-6}$ 以上的差距 (無論是否會斷裂) 
+    \item 有 3 分的測試資料 $ D = 180 $
 	\item 有 10 分的測試資料 $N \leq 15$
 	\item 有 45 分的測試資料 $N \leq 100$
 \end{itemize}
@@ -53,7 +56,7 @@
 \OutputFile
 
 輸出一個正整數，表示最多能跟幾根電線桿相接觸（含頭尾）\newline
-要是沒辦法找出符合條件的包法，輸出 "-1"（不含引號）\newline
+要是沒辦法找出符合條件的包法，輸出 ``-1''（不含引號）\newline
 
 \Examples
 
@@ -63,4 +66,11 @@
  \exmpfile{./sample/PD-03.in.txt}{./sample/PD-03.out.txt}%
 \end{example}
 
+\Note
+
+建議的計算角度方法： \\
+對於二維向量$A=(x_1,y_1),\ B=(x_2,y_2)$ 求兩向量間的角度 $t \ ^{\circ}$ \\
+$·t = abs( atan2(y_1,x_1) - atan2(y_2,x_2) ) * 180.0 / \pi\ \ $\\
+其中 atan2 在 C++ 的 <cmath>，以及 C 的 <math.h> 可以找到\\
+$\pi$ 則可以用 acos(-1.0) 獲得
 \end{problem}
