@@ -81,35 +81,22 @@ void sol_DP()
 	
 	for(int i=1; i<n; i++)
 	{
-		//cout << "i = " << i <<endl;
 		int kr=0;
 		deque<int> k_que;
 		for(int j=i+1; j<n; j++)
 		{
-			//cout << "  j = " << j <<endl;
 			if( blocked[i][j] )
 				continue;
 			
-			//cout << "   front angle : ";
 			while( !k_que.empty() && Angle( P(k_que.front()), P(i), P(j)) > D )
-			{
-				//cout << Angle( P(k_que.front()), P(i), P(j)) << " ";
 				k_que.pop_front();
-			}
-			/*
-			if(k_que.size())
-				cout << Angle( P(k_que.front()), P(i), P(j));
-			cout << endl;
-			//	*/
 			
 			while( kr<i )
 			{
-			//	cout << "   k = " << kr << ", angle = " << Angle(P(kr), P(i), P(j)) << endl;
 				double angle = Angle(P(kr),P(i),P(j));
 				
 				if( blocked[kr][i] )
 				{
-			//		puts("   blocked");
 					kr++;
 					continue;
 				}
@@ -123,13 +110,10 @@ void sol_DP()
 					while( !k_que.empty() && v[kr][i] > v[k_que.back()][i] )
 						k_que.pop_back();
 						
-				//	cout << "   push(" << kr << "), angle = " << setprecision(10) <<Angle(P(kr), P(i), P(j)) <<endl;
-				
 					k_que.push_back(kr);
 					kr++;
 				}
 				else {
-				//	puts("    break");
 					break;
 				}
 			}
@@ -139,12 +123,6 @@ void sol_DP()
 			else
 				v[i][j] = (-1);
 			
-			/*
-			printf("   que : ");
-			for(auto it=k_que.begin(); it!=k_que.end(); it++)
-				cout << *it << ", ";
-			cout <<endl;
-			// */
 		}
 	}
 	
