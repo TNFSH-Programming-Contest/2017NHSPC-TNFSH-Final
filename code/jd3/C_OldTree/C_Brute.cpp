@@ -10,9 +10,9 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
-int w[10000];
-vector<int> g[10000];
-bool vist[10000];
+int w[100001];
+vector<int> g[100001];
+bool vist[100001];
 int DFS(int i)
 {
 	vist[i] = true;
