@@ -20,13 +20,23 @@ double cross3(Point a, Point b, Point c)
 {
 	return cross(b-a, c-b);
 }
+//double toDeg(double t){ return t*180.0/acos(-1); };
 double calc_degree(Point a, Point b, Point c)
 {
+	//Point v1 = b-a;
+	//Point v2 = c-b;
+	//return
+	//	toDeg(
+	//		abs( atan2((double)v1.Y, (double)v1.X) - atan2((double)v2.Y, (double)v2.X) )
+	//	);
+
 	double cosx = dot(a-b, c-b) / (abs(a-b) * abs(c-b));
-	double degree = acos(cosx+1e-10)*180/acos(-1);
+	if(cosx<-1) cosx=-1;
+	else if(cosx>1) cosx=1;
+	double degree = acos(cosx)*180/acos(-1);
 	//cout<<fixed<<setprecision(180)<<cosx+1<<' '<<-1<<endl;
 	//cout<<cosx<<' '<<degree<<' '<<acos(cosx)<<' '<<acos(-1)<<endl;
-	assert(!isnan(degree));
+	assert(!std::isnan(degree));
 	return 180-degree;
 	//if(cross(b-a, c-b)>0) return 180 - degree;
 	//else return -180 + degree;
