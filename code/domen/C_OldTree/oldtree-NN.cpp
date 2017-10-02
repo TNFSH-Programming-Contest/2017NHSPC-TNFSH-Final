@@ -5,14 +5,15 @@
 using namespace std;
 int n;
 int v[10001];
-bool g[10001][10001];
+bool g2[10001][10001];
+vector<int> g[10001];
 bool u[10001]={};
 int dfs(int i)
 {
 	u[i]=1;
 	int sz=v[i];
-	for(int j=0;j<=n;j++)
-		if(g[i][j] && !u[j])
+	for(int j:g[i])
+		if(!u[j])
 			sz+=dfs(j);
 	return sz;
 }
@@ -23,7 +24,7 @@ int main()
 
 	int m;
 	cin>>n>>m;
-	assert(n<=10000 && m<=n*(n-1)/2 && n>=1 && m>0);
+	assert(n<=10000 && m<=n*(n+1)/2 && n>=1 && m>0);
 	for(int i=1;i<=n;i++)
 	{
 		cin>>v[i];
@@ -34,8 +35,10 @@ int main()
 		int a,b;
 		cin>>a>>b;
 		assert(a>=0 && b>=0 && a<=n && b<=n);
-		//assert(g[a][b]==0);
+		assert(g[a][b]==0);
 		g[a][b]=g[b][a]=1;
+		g[a].push_back(b);
+		g[b].push_back(a);
 	}
 
 	int mn = dfs(0), ans=-1;
