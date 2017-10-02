@@ -91,7 +91,7 @@ int main(int argc, char* argv[]) {
 				{
 					int a = rnd.next(0, n);
 					int b = rnd.next(0, n);
-					if( g[a][b] )
+					if( !g[a][b] )
 					{
 						AddEdge(a,b);
 						i++;
