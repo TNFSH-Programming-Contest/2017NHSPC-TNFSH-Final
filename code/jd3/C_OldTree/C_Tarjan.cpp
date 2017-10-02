@@ -95,7 +95,7 @@ int main()
 	int max_id = 0;
 	for(int i=1; i<=n; i++)
 	{
-		if( sum[i] > max_sum)
+		if( sum[i] > max_sum )
 		{
 			max_sum = sum[i];
 			max_id = i;
