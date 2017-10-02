@@ -100,12 +100,12 @@ void sol_DP()
 					kr++;
 					continue;
 				}
-				else if(angle >= D)
+				else if(angle > D)
 				{
 					kr++;
 					continue;
 				}
-				else if( abs(Angle(P(kr), P(i), P(j))) <= D )
+				else if( abs(angle) <= D )
 				{
 					while( !k_que.empty() && v[kr][i] > v[k_que.back()][i] )
 						k_que.pop_back();
