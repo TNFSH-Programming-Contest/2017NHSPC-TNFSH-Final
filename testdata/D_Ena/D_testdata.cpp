@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 			else d = rnd.next(1, 180);
 			f<<n<<" "<<d<<endl;
 			
-			if(q>=4 &&w<=3) {
+			if(q != 2 && w <= 3) {
 				sl = rnd.next(2, maxl);
 				f<<sl;
 				for(int e=1; e<n-1; e++) {
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 					f<<" "<<l;
 				}
 				f<<" "<<sl;
-			} else if(q>=4 &&w<=6) {
+			} else if(q != 2 && w <= 6) {
 				int min = rnd.next(n/4, n/4*3);
 				int d = rnd.next(1, 100);
 				int r = rnd.next(n, n*4);
