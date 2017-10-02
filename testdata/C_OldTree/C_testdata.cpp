@@ -49,8 +49,8 @@ void MakeTree (int n)
 	int edge_cnt=0;
 	while(edge_cnt < n-1)
 	{
-		int a = rnd.next(0, n);
-		int b = rnd.next(0, n);
+		int a = rnd.next(0, n-1);
+		int b = rnd.next(0, n-1);
 		
 		//cout << "a=" << a << ", find(a)=" << Find(a) << endl;
 		//cout << "b=" << b << ", find(b)=" << Find(b) << endl;
@@ -89,8 +89,8 @@ int main(int argc, char* argv[]) {
 			} else {
 				for(int i=n; i<m; )
 				{
-					int a = rnd.next(0, n+1);
-					int b = rnd.next(0, n+1);
+					int a = rnd.next(0, n);
+					int b = rnd.next(0, n);
 					if( g[a][b] )
 					{
 						AddEdge(a,b);
