@@ -14,7 +14,7 @@ struct SegTree
 {
 	int count = 0;
 	int width = 0;
-	int *a;
+	int *a=nullptr;
 	
 	int leaf(int i){ return width+i; };
 	int lch(int i){ return (i<<1); }
@@ -76,8 +76,8 @@ struct SegTree
 			_Mod(rch(i), M+1,R, l,r, v);
 		else
 		{
-			_Mod(rch(i), L,M, l,M, v);
-			_Mod(lch(i), M+1,R, M+1,r, v);
+			_Mod(lch(i), L,M, l,M, v);
+			_Mod(rch(i), M+1,R, M+1,r, v);
 		}
 		
 		Up(i);
@@ -87,7 +87,7 @@ struct SegTree
 	
 	void Mod(int L, int R, int v)
 	{
-		_Mod(0, 0,width-1,L,R,v);
+		_Mod(1, 0,width-1, L,R, v);
 	}
 };
 
@@ -103,13 +103,18 @@ int main()
 	
 	int a;
 	for(int i=0; i<n; i++)
-	{
-		cin >> a;
-		ST.a[ST.leaf(i)] = a;
-	}
+		cin >> ST.a[ST.leaf(i)];
 	
 	ST.UpAll();
-	
+	/*
+	cout << "ST_size = " << ST.count <<endl;
+	for(int i=1; i<=ST.count; i++)
+	{
+		if((i&(-i))==i)
+			cout << endl;
+		cout << ST.a[i] << " ";
+	}
+	*/
 	int m;
 	cin >> m;
 	while(m--)
