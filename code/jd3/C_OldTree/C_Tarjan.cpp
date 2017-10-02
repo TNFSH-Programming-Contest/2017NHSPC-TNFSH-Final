@@ -29,7 +29,7 @@ void DFS(int i, int father)
 	low[i] = dfn[i] = next_dfn();
 	for(int k=0; k<g[i].size(); k++)
 	{
-		int j = g[i][k];
+		int j = g[i][k];	
 		
 		if(j==father)
 			continue;
@@ -50,7 +50,7 @@ void Tarjan(int n, int st)
 {
 	memset(dfn,-1,sizeof(dfn));
 	dfn[0] = next_dfn();
-	DFS(st,st);
+	DFS(0,st);
 }
 
 int main()
