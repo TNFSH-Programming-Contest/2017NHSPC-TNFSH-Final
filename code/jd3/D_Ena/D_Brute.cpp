@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 typedef long long LL;
 const double PI = acos(-1.0);
 
@@ -46,6 +45,7 @@ inline Vec2 P(int i){ return Vec2(i,h[i]); };
 
 void CalculateBlocking()
 {
+	memset(blocked,false,sizeof(blocked));
 	for(int i=0; i<n; i++)
 	{
 		int high = i+1;
@@ -61,13 +61,15 @@ void CalculateBlocking()
 
 
 int DFS(int i, int j)
-{
+{ 
 	if(j==(n-1))
 		return 2;
 	
 	int ans = -1;
 	for(int k=j+1; k<n; k++)
 	{
+		if(blocked[j][k])
+			continue;
 		if( abs(Angle(P(i),P(j),P(k))) <= D )
 		{
 			int res = DFS(j,k);
@@ -89,9 +91,11 @@ int main()
 	CalculateBlocking();
 	
 	int ans = (-1);
-	for(int i=1; i<n-1; i++)
+	for(int i=1; i<n; i++)
+	{
 		if(!blocked[0][i])
 			ans = max(ans,DFS(0,i));
+	}
 	cout << ans << endl;
 	
 	return 0;
