@@ -4,10 +4,10 @@
 #include <cassert>
 using namespace std;
 int n;
-int v[10001];
-bool g2[10001][10001];
-vector<int> g[10001];
-bool u[10001]={};
+int v[100001];
+//bool g2[10001][10001];
+vector<int> g[100001];
+bool u[100001]={};
 int dfs(int i)
 {
 	u[i]=1;
@@ -35,8 +35,8 @@ int main()
 		int a,b;
 		cin>>a>>b;
 		assert(a>=0 && b>=0 && a<=n && b<=n);
-		assert(g[a][b]==0);
-		g[a][b]=g[b][a]=1;
+		//assert(g[a][b]==0);
+		//g[a][b]=g[b][a]=1;
 		g[a].push_back(b);
 		g[b].push_back(a);
 	}
